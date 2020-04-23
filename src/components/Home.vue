@@ -14,7 +14,7 @@ export default {
       // 跳轉到登錄頁
       this.$router.push('/login')
       // 彈出消息框
-      this.$message({ type: 'info', message: '退出登錄', duration: 1000 })
+      this.$message({ type: 'info', message: '退出登錄', duration: 1500 })
     }
   }
 }

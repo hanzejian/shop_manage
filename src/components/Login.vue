@@ -23,14 +23,13 @@
           ></el-input>
         </el-form-item>
         <!-- 密碼 -->
-        <el-form-item prop="password ">
+        <el-form-item prop="password">
           <el-input
             v-model="loginForm.password"
             prefix-icon="iconfont icon-password"
             type="password"
             placeholder="請輸入密碼"
-            show-password
-            clearable
+            
             @keydown.enter.native='login'
           ></el-input>
         </el-form-item>
@@ -79,13 +78,13 @@ export default {
       this.$refs.loginFormRef.validate(async valid => {
         if (!valid) return;
         const { data: res } = await this.$http.post("login", this.loginForm);
-        if (res.meta.status !== 200)
-          return this.$message({
+        if (res.meta.status !== 200) return this.$message(
+          {
             type: "error",
-            message: "登錄失敗",
-            duration: 1000
+            message: "賬號或密碼錯誤",
+            duration: 1500
           });
-        this.$message({ type: "success", duration: 1000, message: "登錄成功" });
+        this.$message({ type: "success", duration: 1500, message: "登錄成功" });
         // 1. 将登陆成功之后的 token ，保存到客戶端的sessionStorage中
         //  1.1 中除了登錄之外的其他API接口，必須在登錄之後才能訪問
         //  1.2 token 只應在當前網站打開期間生效，所以將 token 保存在sessionStorage
