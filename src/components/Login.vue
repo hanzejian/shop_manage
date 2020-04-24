@@ -29,7 +29,8 @@
             prefix-icon="iconfont icon-password"
             type="password"
             placeholder="請輸入密碼"
-            
+            clearable
+            show-password
             @keydown.enter.native='login'
           ></el-input>
         </el-form-item>
