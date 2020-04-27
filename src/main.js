@@ -3,10 +3,13 @@ import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
 
-// 導入圖標樣式
+// 导入全局样式
 import './assets/fonts/iconfont.css'
 // 导入全局样式表
 import '../src/assets/css/global.css'
+
+import TreeTable from 'vue-table-with-tree-grid'
+
 // 引入axios
 import axios from 'axios'
 // 配置請求根路徑
@@ -20,6 +23,8 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
+
+Vue.component('tree-table', TreeTable)
 
 new Vue({
   router,
