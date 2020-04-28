@@ -9,6 +9,15 @@ import './assets/fonts/iconfont.css'
 import '../src/assets/css/global.css'
 
 import TreeTable from 'vue-table-with-tree-grid'
+Vue.component('tree-table', TreeTable)
+
+// 富文本编辑器
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css' // import styles
+import 'quill/dist/quill.snow.css' // for snow theme
+import 'quill/dist/quill.bubble.css' // for bubble theme
+// 将富文本编辑器注册为全局可用的组件
+Vue.use(VueQuillEditor)
 
 // 引入axios
 import axios from 'axios'
@@ -24,7 +33,15 @@ Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
-Vue.component('tree-table', TreeTable)
+
+
+// 引入时间格式化插件
+import moment from 'moment'
+// 定义全局过滤器
+Vue.filter('dateFormat', (data, pattern = "YYYY-MM-DD HH:MM:SS") => {
+  return moment(data).format(pattern)
+}
+)
 
 new Vue({
   router,
